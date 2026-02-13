@@ -8,6 +8,8 @@ public class Coffee : MonoBehaviour
     [SerializeField] private Animator _animator;
     [field :SerializeField] public CoffeeDamageCharacteristics DamageCharacteristics { get; private set; }
 
+    public event Action IndicatorShow;
+
     public void Drink(Action DrinkEnd)
     {
         StartCoroutine(Drinking(DrinkEnd));
@@ -25,6 +27,11 @@ public class Coffee : MonoBehaviour
         Debug.Log("Aga");
         _animator.SetBool("Drink", false);
         action?.Invoke();
+    }
+
+    public void ShowIndicator()
+    {
+        IndicatorShow?.Invoke();   
     }
 
     public void Use(Hand hand)
