@@ -27,6 +27,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private Consumable[] _consumablePrefabs;
 
     public Action HandSelected;
+    public Action HandDeselected;
 
     public void Select()
     {

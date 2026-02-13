@@ -10,8 +10,34 @@ public class PlayerConsumableSelector : MonoBehaviour
 
     private RaycastHit _hit;
 
+    public bool CanIntereact = true;
+
+    private void OnEnable()
+    {
+        _hand.HandSelected += OnHandSelected;
+        _hand.HandDeselected += OnHandDeselected;
+    }
+
+    private void OnHandSelected()
+    {
+        CanIntereact = true;
+    }
+
+    private void OnHandDeselected()
+    {
+        CanIntereact = false;
+    }
+
+    private void OnDisable()
+    {
+        _hand.HandSelected -= OnHandSelected;
+        _hand.HandDeselected -= OnHandDeselected;
+    }
+
     private void Update()
     {
+        if (!CanIntereact)
+            return;
         Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out _hit, 100))
         {
