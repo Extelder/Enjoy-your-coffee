@@ -626,15 +626,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d762a74590c35439c8f8bc3c13ef0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _discardPoint: {fileID: 0}
   <CoffeeDrinker>k__BackingField: {fileID: 73145322}
   <Consumables>k__BackingField:
   - {fileID: 590188325352790316}
+  <ConsumableSlots>k__BackingField: []
   <HideConsumablePoint>k__BackingField: {fileID: 1273628995}
   <PlayableConsumables>k__BackingField:
   - Consumable: {fileID: 5767682624173994334, guid: 91517f922b423484db529f693d138d34,
       type: 3}
     ConsumableObject: {fileID: 8707522048759187339, guid: 91517f922b423484db529f693d138d34,
       type: 3}
+  _consumablePrefabs: []
 --- !u!1 &360745768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +2308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfdb7ede3490fb4cadc62499ada0245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hands:
+  - {fileID: 322868170}
+  <CoffeeSwitcher>k__BackingField: {fileID: 0}
   <Coffee>k__BackingField: {fileID: 673654022}
 --- !u!4 &2117073405
 Transform:

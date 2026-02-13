@@ -39,7 +39,7 @@ public class GameState : MonoBehaviour
             _hands[i].Select();
         }
     }
-
+    
     public void SwitchHand(int id)
     {
         CurrentHand.HandDeselected?.Invoke();
