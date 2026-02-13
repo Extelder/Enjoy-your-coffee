@@ -7,7 +7,7 @@ public class PlayerConsumableSelector : MonoBehaviour
 {
     [SerializeField] private Hand _hand;
     [SerializeField] private Camera _camera;
-    
+
     private RaycastHit _hit;
 
     private void Update()
@@ -20,6 +20,14 @@ public class PlayerConsumableSelector : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     Consumable.PrepareToUse(_hand);
+                }
+            }
+
+            if (_hit.collider.TryGetComponent<Coffee>(out Coffee Coffee))
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    Coffee.Use(_hand);
                 }
             }
         }

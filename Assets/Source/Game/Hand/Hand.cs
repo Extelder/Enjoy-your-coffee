@@ -13,6 +13,8 @@ public struct PlayableConsumable
 
 public class Hand : MonoBehaviour
 {
+    [field: SerializeField] public CoffeeDrinker CoffeeDrinker { get; private set; }
+    
     [field: SerializeField] public List<Consumable> Consumables { get; private set; } = new List<Consumable>();
 
     [field: SerializeField] public Transform HideConsumablePoint { get; private set; }
