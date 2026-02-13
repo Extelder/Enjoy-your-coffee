@@ -11,7 +11,7 @@ public class GameState : MonoBehaviour
 
     public Hand CurrentHand { get; private set; }
 
-    [field: SerializeField] public Coffee Coffee { get; private set; }
+    [field: SerializeField] public Coffee Coffee { get; set; }
 
     public static GameState Instance { get; private set; }
 
@@ -33,13 +33,17 @@ public class GameState : MonoBehaviour
         CoffeeSwitcher.RollCoffies();
         _id = Random.Range(0, _hands.Length);
         CurrentHand = _hands[_id];
-        CurrentHand.Select();
+
+        for (int i = 0; i < _hands.Length; i++)
+        {
+            _hands[i].Select();
+        }
     }
 
     public void SwitchHand(int id)
     {
         CurrentHand = _hands[id];
-        CurrentHand.Select();
+        CurrentHand.HandSelected?.Invoke();
     }
 
     public void NextHand()

@@ -34,6 +34,7 @@ public class CoffeeSwitcher : MonoBehaviour
 
         _currentCoffee = _coffies[0];
         _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
+        GameState.Instance.Coffee = _currentCoffee;
     }
 
     public void NextCoffee()
@@ -47,5 +48,6 @@ public class CoffeeSwitcher : MonoBehaviour
 
         _currentCoffee = _coffies[_currentId];
         _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
+        GameState.Instance.Coffee = _currentCoffee;
     }
 }

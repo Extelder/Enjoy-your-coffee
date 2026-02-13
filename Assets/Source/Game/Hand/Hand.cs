@@ -26,7 +26,7 @@ public class Hand : MonoBehaviour
 
     [SerializeField] private Consumable[] _consumablePrefabs;
 
-    public event Action HandSelected;
+    public Action HandSelected;
 
     public void Select()
     {
@@ -43,7 +43,6 @@ public class Hand : MonoBehaviour
         }
 
         Invoke(nameof(Roll), 1);
-        HandSelected?.Invoke();
     }
 
     private void Roll()
