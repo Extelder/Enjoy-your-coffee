@@ -9,10 +9,8 @@ public class HandUsePoisonChecker : HandUseConsumable
     {
         if (GameState.Instance.Coffee.DamageCharacteristics.Value == 0)
         {
-            Debug.Log("NO DAMAGE");
             return;
         }
         GameState.Instance.Coffee.ShowIndicator();
-        Debug.Log("DOHUYA DAMAGE");
     }
 }

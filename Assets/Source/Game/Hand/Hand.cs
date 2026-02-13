@@ -63,7 +63,6 @@ public class Hand : MonoBehaviour
         {
             int cA = PlayableConsumables[i].Consumable.ID;
             int cB = consumable.ID;
-            Debug.Log(cA == cB);
 
             if (cA == cB)
             {

@@ -29,7 +29,6 @@ public abstract class Health : MonoBehaviour
         {
             ChangeHealthValue(CurrentValue - value);
             Damaged?.Invoke(CurrentValue);
-            Debug.Log(CurrentValue);
             return;
         }
 
