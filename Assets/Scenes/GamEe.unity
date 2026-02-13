@@ -390,6 +390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hand: {fileID: 322868170}
   _camera: {fileID: 73145317}
+  CanIntereact: 1
 --- !u!114 &73145322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1277,7 +1278,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 12.35
+  m_Intensity: 0.1
   m_Range: 10.2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -2982,7 +2983,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 11.88
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 118.77405
   m_InnerSpotAngle: 110.576126

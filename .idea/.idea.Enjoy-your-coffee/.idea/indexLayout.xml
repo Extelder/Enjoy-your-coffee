@@ -42,14 +42,18 @@
       <Path>Library/PackageCache/com.unity.modules.vr@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.modules.wind@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.modules.xr@1.0.0</Path>
+      <Path>Library/PackageCache/com.unity.postprocessing@3.4.0</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.core@14.0.12</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.universal-config@14.0.10</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.universal@14.0.12</Path>
       <Path>Library/PackageCache/com.unity.searcher@4.9.2</Path>
       <Path>Library/PackageCache/com.unity.shadergraph@14.0.12</Path>
+      <Path>Library/PackageCache/com.unity.sysroot.linux-x86_64@2.0.9</Path>
+      <Path>Library/PackageCache/com.unity.sysroot@2.0.10</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.33</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@3.0.7</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.7.7</Path>
+      <Path>Library/PackageCache/com.unity.toolchain.win-x86_64-linux-x86_64@2.0.11</Path>
       <Path>Library/PackageCache/com.unity.ugui@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.visualscripting@1.9.4</Path>
       <Path>Packages</Path>
