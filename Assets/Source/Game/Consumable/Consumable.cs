@@ -8,7 +8,7 @@ public abstract class Consumable : MonoBehaviour
 {
     [SerializeField] private float _moveTime = 1;
     [SerializeField] private Ease _ease = Ease.InOutQuint;
-    [field: SerializeField] public Consumable ConsumablePrefab { get; private set; }
+    [field: SerializeField] public int ID { get; private set; }
 
     private Tween _tween;
 

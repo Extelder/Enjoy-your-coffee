@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 public struct PlayableConsumable
 {
     public Consumable Consumable;
-    public GameObject ConsumableObject;
+    public HandUseConsumable ConsumableObject;
 }
 
 public class Hand : MonoBehaviour
@@ -24,13 +24,15 @@ public class Hand : MonoBehaviour
     {
         for (int i = 0; i < PlayableConsumables.Length; i++)
         {
-            Consumable cA = PlayableConsumables[i].Consumable as Consumable;
-            Consumable cB = consumable.ConsumablePrefab as Consumable;
+            int cA = PlayableConsumables[i].Consumable.ID;
+            int cB = consumable.ID;
             Debug.Log(cA == cB);
 
             if (cA == cB)
             {
-                PlayableConsumables[i].ConsumableObject.SetActive(true);
+                Debug.Log("Consumables Play");
+                PlayableConsumables[i].ConsumableObject.gameObject.SetActive(true);
+                PlayableConsumables[i].ConsumableObject.Use(this);
             }
         }
     }
