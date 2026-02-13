@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameState : MonoBehaviour
+public class PlayerHealth : Health
 {
-    [field: SerializeField] public Coffee Coffee { get; private set; }
-
-    public static GameState Instance { get; private set; }
-
+    public static PlayerHealth Instance;
+    
     private void Awake()
     {
         if (Instance == this)
             return;
-
+        
         Instance = this;
+    }
+
+    public override void Death()
+    {
     }
 }
