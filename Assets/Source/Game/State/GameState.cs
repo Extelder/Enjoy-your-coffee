@@ -15,15 +15,18 @@ public class GameState : MonoBehaviour
 
     public static GameState Instance { get; private set; }
 
+
     private int _id;
 
-    private void OnEnable()
+
+    private void Awake()
     {
         if (Instance == this)
             return;
 
         Instance = this;
     }
+
 
     private void Start()
     {

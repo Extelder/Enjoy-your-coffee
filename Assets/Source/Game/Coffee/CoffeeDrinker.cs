@@ -11,14 +11,14 @@ public class CoffeeDrinker : MonoBehaviour
 
     [SerializeField] private Ease _ease = Ease.InOutQuint;
 
-    public event Action CoffeeDrinked;
+    public event Action<int> CoffeeDrinked;
 
     public void Drink(Coffee coffee)
     {
         coffee.transform.DOMove(_drinkPoint.position, _coffeeMoveSpeed).SetEase(_ease);
         coffee.transform.DORotate(_drinkPoint.eulerAngles, _coffeeMoveSpeed).SetEase(_ease).OnComplete(() =>
         {
-            coffee.Drink(() => CoffeeDrinked?.Invoke());
+            coffee.Drink(() => CoffeeDrinked?.Invoke(coffee.DamageCharacteristics.Value));
         });
     }
 }

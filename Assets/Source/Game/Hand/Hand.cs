@@ -67,7 +67,6 @@ public class Hand : MonoBehaviour
 
             if (cA == cB)
             {
-                Debug.Log("Consumables Play");
                 PlayableConsumables[i].ConsumableObject.gameObject.SetActive(true);
                 PlayableConsumables[i].ConsumableObject.Use(this);
             }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Coffee : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [field :SerializeField] public bool CoffeePoisonous { get; set; }
+    [field :SerializeField] public CoffeeDamageCharacteristics DamageCharacteristics { get; private set; }
 
     public void Drink(Action DrinkEnd)
     {
@@ -15,8 +15,6 @@ public class Coffee : MonoBehaviour
 
     private IEnumerator Drinking(Action action)
     {
-        if (CoffeePoisonous)
-            Debug.Log("CoffePoisonous");
         _animator.SetBool("Drink", true);
         var state = _animator.GetCurrentAnimatorStateInfo(0);
         yield return new WaitUntil(() =>
