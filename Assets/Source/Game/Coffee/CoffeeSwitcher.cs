@@ -1,10 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CoffeeSwitcher : MonoBehaviour
 {
     [SerializeField] private Coffee[] _coffies;
+
+    [SerializeField] private Transform _activeCoffeePoint;
+
+    private Coffee _currentCoffee;
+
+    private int _currentId;
+
+    public event Action CoffiesEnd;
 
     public void RollCoffies()
     {
@@ -20,5 +31,21 @@ public class CoffeeSwitcher : MonoBehaviour
         {
             _coffies[i].gameObject.SetActive(true);
         }
+
+        _currentCoffee = _coffies[0];
+        _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
+    }
+
+    public void NextCoffee()
+    {
+        _currentId++;
+        if (_currentId > _coffies.Length - 1)
+        {
+            CoffiesEnd?.Invoke();
+            return;
+        }
+
+        _currentCoffee = _coffies[_currentId];
+        _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
     }
 }

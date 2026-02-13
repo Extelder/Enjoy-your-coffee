@@ -18,7 +18,13 @@ public class CoffeeDrinker : MonoBehaviour
         coffee.transform.DOMove(_drinkPoint.position, _coffeeMoveSpeed).SetEase(_ease);
         coffee.transform.DORotate(_drinkPoint.eulerAngles, _coffeeMoveSpeed).SetEase(_ease).OnComplete(() =>
         {
-            coffee.Drink(() => CoffeeDrinked?.Invoke(coffee.DamageCharacteristics.Value));
+            coffee.Drink(() =>
+            {
+                CoffeeDrinked?.Invoke(coffee.DamageCharacteristics.Value);
+                GameState.Instance.CoffeeSwitcher.NextCoffee();
+                GameState.Instance.NextHand();
+                Destroy(coffee.gameObject);
+            });
         });
     }
 }

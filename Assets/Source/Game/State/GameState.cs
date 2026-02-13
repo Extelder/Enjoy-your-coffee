@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class GameState : MonoBehaviour
 {
     [SerializeField] private Hand[] _hands;
-    [SerializeField] private CoffeeSwitcher _coffeeSwitcher;
+    [field: SerializeField] public CoffeeSwitcher CoffeeSwitcher { get; private set; }
 
     public Hand CurrentHand { get; private set; }
 
@@ -30,7 +30,7 @@ public class GameState : MonoBehaviour
 
     private void Start()
     {
-        _coffeeSwitcher.RollCoffies();
+        CoffeeSwitcher.RollCoffies();
         _id = Random.Range(0, _hands.Length);
         CurrentHand = _hands[_id];
         CurrentHand.Select();
@@ -49,11 +49,5 @@ public class GameState : MonoBehaviour
             _id = 0;
 
         SwitchHand(_id);
-    }
-
-    public void ChangeCurrentCoffeeCharacteristics()
-    {
-        Debug.Log("COFFEE NOT POISONOUS");
-        Coffee.CoffeePoisonous = false;
     }
 }
