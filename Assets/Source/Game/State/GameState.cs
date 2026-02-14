@@ -18,6 +18,8 @@ public class GameState : MonoBehaviour
 
     private int _id;
 
+    public event Action<Hand> HandSwitched;
+
 
     private void Awake()
     {
@@ -33,18 +35,25 @@ public class GameState : MonoBehaviour
         CoffeeSwitcher.RollCoffies();
         _id = Random.Range(0, _hands.Length);
         CurrentHand = _hands[_id];
-        CurrentHand.HandSelected?.Invoke();
         for (int i = 0; i < _hands.Length; i++)
         {
             _hands[i].Select();
+            _hands[i].HandDeselected?.Invoke();
         }
+
+        CurrentHand.HandSelected?.Invoke();
+        HandSwitched?.Invoke(CurrentHand);
+
+
+        Debug.Log(_id);
     }
-    
+
     public void SwitchHand(int id)
     {
         CurrentHand.HandDeselected?.Invoke();
         CurrentHand = _hands[id];
         CurrentHand.HandSelected?.Invoke();
+        HandSwitched?.Invoke(CurrentHand);
     }
 
     public void NextHand()
@@ -52,6 +61,7 @@ public class GameState : MonoBehaviour
         _id++;
         if (_id > _hands.Length - 1)
             _id = 0;
+
 
         SwitchHand(_id);
     }
