@@ -11,13 +11,18 @@ public abstract class Consumable : MonoBehaviour
     [field: SerializeField] public int ID { get; private set; }
 
     private Tween _tween;
+    private bool _canMove = true;
 
     public abstract void Use(Hand hand);
 
     public virtual void PrepareToUse(Hand hand)
     {
+        if (!_canMove)
+            return;
+        _canMove = false;
         _tween = transform.DOMove(hand.HideConsumablePoint.position, _moveTime).SetEase(_ease).OnComplete(() =>
         {
+            _canMove = true;
             Use(hand);
             hand.Consumables.Remove(this);
             Destroy(gameObject);
