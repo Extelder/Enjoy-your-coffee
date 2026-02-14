@@ -1792,8 +1792,10 @@ MonoBehaviour:
       type: 3}
     ConsumableObject: {fileID: 1980936447412491718, guid: a25f43a104d9fde40a378efc4efb1832,
       type: 3}
-  - Consumable: {fileID: 2284843037908886960}
-    ConsumableObject: {fileID: 8881644153103812715}
+  - Consumable: {fileID: 3322547273455762722, guid: f113e7a7f05840a4482502de863e8e22,
+      type: 3}
+    ConsumableObject: {fileID: 4000031465101205587, guid: f113e7a7f05840a4482502de863e8e22,
+      type: 3}
   _consumablePrefabs:
   - {fileID: 5767682624173994334, guid: 91517f922b423484db529f693d138d34, type: 3}
   - {fileID: 6419891972105760611, guid: 32465821d64de3c489f5b176161d4af7, type: 3}
@@ -2165,6 +2167,7 @@ MonoBehaviour:
   - {fileID: 706925645}
   - {fileID: 998614595}
   <CoffeeSwitcher>k__BackingField: {fileID: 1957194602}
+  _playAlone: 1
   <Coffee>k__BackingField: {fileID: 1278537221}
 --- !u!4 &908578834
 Transform:
@@ -6087,18 +6090,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f113e7a7f05840a4482502de863e8e22, type: 3}
---- !u!114 &8881644153103812715 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4000031465101205587, guid: f113e7a7f05840a4482502de863e8e22,
-    type: 3}
-  m_PrefabInstance: {fileID: 8787845701240007739}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8f77bd67acedf54c9ba42d3bf7ffe55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8938949558872779728
 Transform:
   m_ObjectHideFlags: 0
