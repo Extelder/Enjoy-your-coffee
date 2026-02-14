@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
 {
     [SerializeField] private Hand[] _hands;
     [field: SerializeField] public CoffeeSwitcher CoffeeSwitcher { get; private set; }
+    [SerializeField] private bool _playAlone;
 
     public Hand CurrentHand { get; private set; }
 
@@ -16,6 +17,7 @@ public class GameState : MonoBehaviour
     public static GameState Instance { get; private set; }
 
 
+    public bool SkipHand { get; set; }
     public int Id { get; private set; }
 
     public event Action<Hand> HandSwitched;
@@ -33,7 +35,10 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         CoffeeSwitcher.RollCoffies();
-        Id = Random.Range(0, _hands.Length);
+        if (_playAlone)
+            Id = 0;
+        else
+            Id = Random.Range(0, _hands.Length);
         CurrentHand = _hands[Id];
         for (int i = 0; i < _hands.Length; i++)
         {
@@ -58,6 +63,12 @@ public class GameState : MonoBehaviour
 
     public void NextHand()
     {
+        if (SkipHand)
+        {
+            Debug.Log("SKIP");
+            SkipHand = false;
+            return;
+        }
         Id++;
         if (Id > _hands.Length - 1)
             Id = 0;

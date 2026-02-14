@@ -37,6 +37,7 @@ public class Coffee : MonoBehaviour
 
     public void DestroyCup()
     {
+        Debug.Log("SHOW INDICATOR");
         ShowIndicator();
         StartCoroutine(Destroying());
     }
@@ -45,6 +46,7 @@ public class Coffee : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Destroy(gameObject);
+        GameState.Instance.CoffeeSwitcher.NextCoffee();
     }
 
     public void Use(Hand hand)

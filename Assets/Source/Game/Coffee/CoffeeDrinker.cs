@@ -10,7 +10,7 @@ public class CoffeeDrinker : MonoBehaviour
     [SerializeField] private float _coffeeMoveSpeed;
 
     [SerializeField] private Ease _ease = Ease.InOutQuint;
-
+    
     public event Action<int> CoffeeDrinked;
 
     public void Drink(Coffee coffee)
