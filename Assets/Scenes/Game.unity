@@ -828,42 +828,42 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.265
+      value: 0.267
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.036
+      value: 2.207
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.279
+      value: 2.127
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9997771
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.021113377
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 2.42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
@@ -944,6 +944,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -3032417991868152358, guid: 1d3b43b2068c48e42bc07c09acb732d8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.76651
       objectReference: {fileID: 0}
     - target: {fileID: -3032417991868152358, guid: 1d3b43b2068c48e42bc07c09acb732d8,
         type: 3}
@@ -1375,6 +1380,7 @@ GameObject:
   - component: {fileID: 580252491}
   - component: {fileID: 580252492}
   - component: {fileID: 580252493}
+  - component: {fileID: 580252494}
   m_Layer: 0
   m_Name: AnimaTE
   m_TagString: Untagged
@@ -1432,6 +1438,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1101874105}
+--- !u!114 &580252494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580252490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2144e7e11c286db47837b0da1954f429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animatorEnemy: {fileID: 328072973}
 --- !u!1 &591510781
 GameObject:
   m_ObjectHideFlags: 0
