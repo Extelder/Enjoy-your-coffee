@@ -27,7 +27,8 @@ public class CoffeeDrinker : MonoBehaviour
                 _canUse = true;
                 CoffeeDrinked?.Invoke(coffee.DamageCharacteristics.Value);
                 GameState.Instance.CoffeeSwitcher.NextCoffee();
-                GameState.Instance.NextHand();
+                if (!(coffee.DamageCharacteristics.Value == 0 && GameState.Instance.CurrentHand.CoffeeDrinker == this))
+                    GameState.Instance.NextHand();
                 Destroy(coffee.gameObject);
             });
         });

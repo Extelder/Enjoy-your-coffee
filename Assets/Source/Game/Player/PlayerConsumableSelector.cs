@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerConsumableSelector : MonoBehaviour
 {
     [SerializeField] private Hand _hand;
+    [SerializeField] private Hand _otherHand;
     [SerializeField] private Camera _camera;
 
     private RaycastHit _hit;
@@ -54,6 +55,11 @@ public class PlayerConsumableSelector : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     Coffee.Use(_hand);
+                }
+
+                if (Input.GetKeyDown(KeyCode.Mouse1))
+                {
+                    Coffee.Use(_otherHand);
                 }
             }
         }
