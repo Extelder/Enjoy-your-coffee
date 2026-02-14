@@ -7,6 +7,7 @@ public class Coffee : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
     [field :SerializeField] public CoffeeDamageCharacteristics DamageCharacteristics { get; private set; }
+    private bool _canUse = true;
 
     public event Action IndicatorShow;
 
@@ -34,8 +35,23 @@ public class Coffee : MonoBehaviour
         IndicatorShow?.Invoke();   
     }
 
+    public void DestroyCup()
+    {
+        ShowIndicator();
+        StartCoroutine(Destroying());
+    }
+
+    private IEnumerator Destroying()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    }
+
     public void Use(Hand hand)
     {
+        if (!_canUse)
+            return;
+        _canUse = false;
         hand.CoffeeDrinker.Drink(this);
     }
 }

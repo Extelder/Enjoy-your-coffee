@@ -3,16 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UniRx;
 
 public class PlayerCameraMove : MonoBehaviour
 {
-    [SerializeField] private Transform _startPoint;
-    [SerializeField] private Ease _ease;
-    [SerializeField] private float _speed;
+    [SerializeField] private Camera _camera;
 
-    private void Start()
+    private CompositeDisposable _disposable = new CompositeDisposable();
+
+    private RaycastHit _hit;
+
+    public void AnimReadyToCheck()
     {
-        transform.DOMove(_startPoint.position, _speed).SetEase(_ease);
-        transform.DORotate(_startPoint.eulerAngles, _speed).SetEase(_ease);
+        Observable.EveryUpdate().Subscribe(_ =>
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out _hit, 100))
+            {
+                if (_hit.collider.TryGetComponent<Door>(out Door Door))
+                {
+                    Door.Open();
+                    GetComponent<Animator>().SetBool("LastAnim", true);
+                    _disposable?.Clear();
+                }
+            }
+        }).AddTo(_disposable);
+    }
+
+    private void OnDisable()
+    {
+        _disposable?.Clear();
     }
 }
