@@ -35,6 +35,18 @@ public class Coffee : MonoBehaviour
         IndicatorShow?.Invoke();   
     }
 
+    public void DestroyCup()
+    {
+        ShowIndicator();
+        StartCoroutine(Destroying());
+    }
+
+    private IEnumerator Destroying()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    }
+
     public void Use(Hand hand)
     {
         if (!_canUse)
