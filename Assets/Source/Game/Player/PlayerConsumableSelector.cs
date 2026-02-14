@@ -13,6 +13,9 @@ public class PlayerConsumableSelector : MonoBehaviour
 
     public bool CanIntereact = true;
 
+    public event Action ConsumableUsed;
+    public static event Action CantSteel;
+
     private void OnEnable()
     {
         _hand.HandSelected += OnHandSelected;
@@ -46,7 +49,16 @@ public class PlayerConsumableSelector : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
-                    Consumable.PrepareToUse(_hand);
+                    if (_hand.CanSteal)
+                    {
+                        Consumable.PrepareToUse(_hand);
+                        CantSteel?.Invoke();
+                        _hand.CanSteal = false;
+                    }
+                    else if (Consumable.Hand == _hand)
+                        Consumable.PrepareToUse(_hand);
+
+                    ConsumableUsed?.Invoke();
                 }
             }
 

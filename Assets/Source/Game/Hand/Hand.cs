@@ -26,6 +26,8 @@ public class Hand : MonoBehaviour
 
     [SerializeField] private Consumable[] _consumablePrefabs;
 
+    public bool CanSteal = false;
+    
     public Action HandSelected;
     public Action HandDeselected;
 
@@ -54,6 +56,7 @@ public class Hand : MonoBehaviour
                 _discardPoint.position,
                 Quaternion.identity));
             Consumables[i].transform.DOMove(ConsumableSlots[i].position, 1);
+            Consumables[i].Init(this);
         }
     }
 

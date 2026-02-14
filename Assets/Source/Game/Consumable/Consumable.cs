@@ -13,7 +13,14 @@ public abstract class Consumable : MonoBehaviour
     private Tween _tween;
     private bool _canMove = true;
 
+    public Hand Hand;
+
     public abstract void Use(Hand hand);
+
+    public void Init(Hand hand)
+    {
+        Hand = hand;
+    }
 
     public virtual void PrepareToUse(Hand hand)
     {

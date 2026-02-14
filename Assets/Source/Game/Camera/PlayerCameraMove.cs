@@ -13,6 +13,22 @@ public class PlayerCameraMove : MonoBehaviour
 
     private RaycastHit _hit;
 
+    private void OnEnable()
+    {
+        StealConsumableHandUse.CanSteel += OnCanSteel;
+        PlayerConsumableSelector.CantSteel += OnCantSteel;
+    }
+
+    private void OnCantSteel()
+    {
+        GetComponent<Animator>().SetBool("CameraTop", false);
+    }
+
+    private void OnCanSteel()
+    {
+        GetComponent<Animator>().SetBool("CameraTop", true);
+    }
+
     public void AnimReadyToCheck()
     {
         Observable.EveryUpdate().Subscribe(_ =>
@@ -33,5 +49,7 @@ public class PlayerCameraMove : MonoBehaviour
     private void OnDisable()
     {
         _disposable?.Clear();
+        StealConsumableHandUse.CanSteel -= OnCanSteel;
+        PlayerConsumableSelector.CantSteel -= OnCantSteel;
     }
 }
