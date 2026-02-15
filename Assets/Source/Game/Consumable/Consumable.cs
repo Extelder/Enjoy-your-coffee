@@ -27,11 +27,11 @@ public abstract class Consumable : MonoBehaviour
         if (!_canMove)
             return;
         _canMove = false;
+        Hand.Consumables.Remove(this);
         _tween = transform.DOMove(hand.HideConsumablePoint.position, _moveTime).SetEase(_ease).OnComplete(() =>
         {
             _canMove = true;
             Use(hand);
-            hand.Consumables.Remove(this);
             Destroy(gameObject);
         });
     }
@@ -41,12 +41,12 @@ public abstract class Consumable : MonoBehaviour
         if (!_canMove)
             return;
         _canMove = false;
+        Hand.Consumables.Remove(this);
         _tween = transform.DOMove(hand.HideConsumablePoint.position, _moveTime).SetEase(_ease).OnComplete(() =>
         {
             hand.StartCoroutine(Wait((() => { OnCompleate?.Invoke(); })));
             _canMove = true;
             Use(hand);
-            hand.Consumables.Remove(this);
             Destroy(gameObject);
         });
     }

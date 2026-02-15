@@ -15,41 +15,53 @@ public class CoffeeSwitcher : MonoBehaviour
 
     private int _currentId;
 
-    public event Action CoffiesEnd;
-    public event Action CoffieSwitched;
+
+    private int _count;
+
+    private Tween _moveTween;
 
     public void RollCoffies()
     {
+        _currentId = 0;
         for (int i = 0; i < _coffies.Length; i++)
         {
             _coffies[i].gameObject.SetActive(false);
             _coffies[i].transform.localPosition = new Vector3(0, 0, 0);
+            _coffies[i].transform.localEulerAngles = new Vector3(0, 0, 0);
         }
 
-        int count = Random.Range(1, _coffies.Length);
+        _count = Random.Range(1, _coffies.Length + 1);
 
-        for (int i = 0; i < _coffies.Length; i++)
+        for (int i = 0; i < _count; i++)
         {
             _coffies[i].gameObject.SetActive(true);
+            _moveTween?.Kill();
         }
 
         _currentCoffee = _coffies[0];
-        _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
+        _moveTween = _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
         GameState.Instance.Coffee = _currentCoffee;
     }
 
     public void NextCoffee()
     {
         _currentId++;
-        if (_currentId > _coffies.Length - 1)
+        Debug.Log(_currentId);
+        Debug.Log((_count - 1));
+        if (_currentId > _count - 1)
         {
-            CoffiesEnd?.Invoke();
+            GameState.Instance.ReStart();
+            _currentId = 0;
             return;
         }
 
         _currentCoffee = _coffies[_currentId];
-        _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
+        _moveTween = _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
         GameState.Instance.Coffee = _currentCoffee;
-        CoffieSwitched?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        _moveTween?.Kill();
     }
 }

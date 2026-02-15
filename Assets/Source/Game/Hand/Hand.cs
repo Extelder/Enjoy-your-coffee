@@ -27,7 +27,7 @@ public class Hand : MonoBehaviour
     [SerializeField] private Consumable[] _consumablePrefabs;
 
     public bool CanSteal = false;
-    
+
     public Action HandSelected;
     public Action HandDeselected;
 
@@ -40,12 +40,12 @@ public class Hand : MonoBehaviour
                 Consumable consumable = Consumables[i];
 
                 Consumables[i].transform.DOMove(_discardPoint.position, 1)
-                    .OnComplete(() => { Destroy(consumable.gameObject); });
-                Consumables.Remove(Consumables[i]);
+                    .OnComplete(() => { Destroy(consumable.gameObject);  Consumables.Remove(consumable);});
+               
             }
         }
 
-        Invoke(nameof(Roll), 1);
+        Invoke(nameof(Roll), 1.5f);
     }
 
     private void Roll()

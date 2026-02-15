@@ -5437,7 +5437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022c83075c3f79640b6c7a7ffea5e571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxValue>k__BackingField: 3
+  <MaxValue>k__BackingField: 10
   _deathScreen: {fileID: 387894602}
 --- !u!114 &1101874098
 MonoBehaviour:

@@ -15,14 +15,27 @@ public class EnemyAI : MonoBehaviour
 
     private bool _handSelected;
 
+    public bool CanDrink;
+
     private void OnEnable()
     {
         _hand.HandSelected += OnHandSelected;
         _hand.HandDeselected += OnHandDeselected;
     }
 
+    private void Start()
+    {
+        GameState.Instance.GameRestart += OnGameRestart;
+    }
+
+    private void OnGameRestart()
+    {
+        OnHandDeselected();
+    }
+
     private void OnHandDeselected()
     {
+        StopAllCoroutines();
         _handSelected = false;
     }
 
@@ -42,12 +55,14 @@ public class EnemyAI : MonoBehaviour
                     }
                     else
                     {
-                        GameState.Instance.Coffee.Use(_otherHand);
+                        if (GameState.Instance.CanDrink)
+                            GameState.Instance.Coffee.Use(_otherHand);
                     }
                 }
                 else
                 {
-                    GameState.Instance.Coffee.Use((_hand));
+                    if (GameState.Instance.CanDrink)
+                        GameState.Instance.Coffee.Use((_hand));
                     OnHandSelected();
                 }
             });
@@ -61,15 +76,10 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator RandomShit()
     {
-        bool skiphand = false;
         int randomConsumablesTOUse = Random.Range(0, _hand.Consumables.Count - 1);
         for (int i = 0; i < randomConsumablesTOUse; i++)
         {
             bool wait = false;
-            if (_hand.Consumables[i].ID == _skipConsumable.ID)
-            {
-                skiphand = true;
-            }
 
             _hand.Consumables[i].PrepareToUse(_hand, () => { wait = true; });
             yield return new WaitUntil(() => wait);
@@ -77,14 +87,16 @@ public class EnemyAI : MonoBehaviour
 
         if (Random.Range(0, 10) > 5)
         {
-            GameState.Instance.Coffee.Use(_hand);
+            if (GameState.Instance.CanDrink)
+                GameState.Instance.Coffee.Use(_hand);
         }
         else
         {
-            GameState.Instance.Coffee.Use(_otherHand);
+            if (GameState.Instance.CanDrink)
+                GameState.Instance.Coffee.Use(_otherHand);
         }
 
-        if (GameState.Instance.Coffee.DamageCharacteristics.Value == 0 || skiphand)
+        if (GameState.Instance.Coffee.DamageCharacteristics.Value == 0)
             OnHandSelected();
     }
 
@@ -92,5 +104,6 @@ public class EnemyAI : MonoBehaviour
     {
         _hand.HandSelected -= OnHandSelected;
         _hand.HandDeselected -= OnHandDeselected;
+        GameState.Instance.GameRestart -= OnGameRestart;
     }
 }

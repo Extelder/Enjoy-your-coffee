@@ -20,7 +20,10 @@ public class GameState : MonoBehaviour
     public bool SkipHand { get; set; }
     public int Id { get; private set; }
 
+    public bool CanDrink = true;
+
     public event Action<Hand> HandSwitched;
+    public event Action GameRestart;
 
 
     private void Awake()
@@ -49,13 +52,28 @@ public class GameState : MonoBehaviour
         CurrentHand.HandSelected?.Invoke();
         HandSwitched?.Invoke(CurrentHand);
 
-
         Debug.Log(Id);
+    }
+
+    public void ReStart()
+    {
+        CanDrink = false;
+        GameRestart?.Invoke();
+        CoffeeSwitcher.RollCoffies();
+        for (int i = 0; i < _hands.Length; i++)
+        {
+            _hands[i].Select();
+        }
+
+        Id = 0;
+        SwitchHand(0);
+        CanDrink = true;
     }
 
     public void SwitchHand(int id)
     {
-        CurrentHand.HandDeselected?.Invoke();
+        if (CurrentHand != _hands[id])
+            CurrentHand.HandDeselected?.Invoke();
         CurrentHand = _hands[id];
         CurrentHand.HandSelected?.Invoke();
         HandSwitched?.Invoke(CurrentHand);
@@ -65,10 +83,12 @@ public class GameState : MonoBehaviour
     {
         if (SkipHand)
         {
+            CurrentHand.HandSelected?.Invoke();
             Debug.Log("SKIP");
             SkipHand = false;
             return;
         }
+
         Id++;
         if (Id > _hands.Length - 1)
             Id = 0;

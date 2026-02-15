@@ -6,7 +6,7 @@ using UnityEngine;
 public class Coffee : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [field :SerializeField] public CoffeeDamageCharacteristics DamageCharacteristics { get; private set; }
+    [field: SerializeField] public CoffeeDamageCharacteristics DamageCharacteristics { get; private set; }
     private bool _canUse = true;
 
     public event Action IndicatorShow;
@@ -32,7 +32,13 @@ public class Coffee : MonoBehaviour
 
     public void ShowIndicator()
     {
-        IndicatorShow?.Invoke();   
+        IndicatorShow?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        _canUse = true;
     }
 
     public void DestroyCup()
@@ -45,7 +51,7 @@ public class Coffee : MonoBehaviour
     private IEnumerator Destroying()
     {
         yield return new WaitForSeconds(1);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         GameState.Instance.CoffeeSwitcher.NextCoffee();
     }
 
