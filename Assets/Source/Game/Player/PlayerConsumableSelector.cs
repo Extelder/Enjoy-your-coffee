@@ -64,6 +64,11 @@ public class PlayerConsumableSelector : MonoBehaviour
 
             if (_hit.collider.TryGetComponent<Coffee>(out Coffee Coffee))
             {
+                if (_hand.CanSteal)
+                {
+                    return;
+                }
+
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                 {
                     Coffee.Use(_hand);

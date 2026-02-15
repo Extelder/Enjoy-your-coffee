@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameState : MonoBehaviour
@@ -20,6 +21,7 @@ public class GameState : MonoBehaviour
     public int Id { get; private set; }
 
     private bool _canDrink = true;
+
     public bool CanDrink
     {
         get => _canDrink;
@@ -52,14 +54,14 @@ public class GameState : MonoBehaviour
         }
 
         CoffeeSwitcher.RollCoffies(false);
-        
+
         if (_playAlone)
             Id = 0;
         else
             Id = Random.Range(0, _hands.Length);
-        
+
         CurrentHand = _hands[Id];
-        
+
         for (int i = 0; i < _hands.Length; i++)
         {
             if (_hands[i] != null)
@@ -80,40 +82,45 @@ public class GameState : MonoBehaviour
     {
         _isRestarting = true;
         _canDrink = false;
-    
+
         GameRestart?.Invoke();
-    
+
         // Деактивируем все руки
         for (int i = 0; i < _hands.Length; i++)
         {
             if (_hands[i] != null)
                 _hands[i].HandDeselected?.Invoke();
         }
-    
+
         // Перезапускаем кофе с подавлением события
         if (CoffeeSwitcher != null)
             CoffeeSwitcher.RollCoffies(true);
-    
+
         // Обновляем карты для всех рук
         for (int i = 0; i < _hands.Length; i++)
         {
             if (_hands[i] != null)
                 _hands[i].Select();
         }
-    
+
         // Устанавливаем руку игрока
         Id = 0;
         CurrentHand = _hands[0];
-    
+
         // ВАЖНО: Сначала вызываем события, ПОТОМ разрешаем пить!
         CurrentHand?.HandSelected?.Invoke();
         HandSwitched?.Invoke(CurrentHand);
-    
+
         // Только ПОСЛЕ всех событий разрешаем игру
         _isRestarting = false;
         _canDrink = true;
-    
+
         Debug.Log("RESTART - Player turn started");
+    }
+
+    public void Undless()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void SwitchHand(int id)
@@ -123,7 +130,7 @@ public class GameState : MonoBehaviour
 
         if (CurrentHand != null && CurrentHand != _hands[id])
             CurrentHand.HandDeselected?.Invoke();
-        
+
         CurrentHand = _hands[id];
         CurrentHand.HandSelected?.Invoke();
         HandSwitched?.Invoke(CurrentHand);

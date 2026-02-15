@@ -8,7 +8,7 @@ public class CoffeePoisonIndicator : MonoBehaviour
     [SerializeField] private Coffee _coffee;
     [SerializeField] private GameObject _image;
     [SerializeField] private float _cooldownToRecover;
-    
+
     private void OnEnable()
     {
         _coffee.IndicatorShow += OnIndicatorShow;
@@ -28,6 +28,7 @@ public class CoffeePoisonIndicator : MonoBehaviour
 
     private void OnDisable()
     {
+        _image.SetActive(false);
         _coffee.IndicatorShow -= OnIndicatorShow;
         StopAllCoroutines();
     }

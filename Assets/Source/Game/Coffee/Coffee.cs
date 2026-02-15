@@ -40,6 +40,7 @@ public class Coffee : MonoBehaviour
     {
         StopAllCoroutines();
         _canUse = true;
+        GetComponent<Collider>().enabled = false;
     }
 
     public void DestroyCup()
