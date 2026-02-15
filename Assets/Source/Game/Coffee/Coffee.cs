@@ -32,7 +32,8 @@ public class Coffee : MonoBehaviour
 
     public void ShowIndicator()
     {
-        IndicatorShow?.Invoke();
+        if (DamageCharacteristics.Value > 0)
+            IndicatorShow?.Invoke();
     }
 
     private void OnDisable()

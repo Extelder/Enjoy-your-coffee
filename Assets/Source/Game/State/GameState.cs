@@ -16,40 +16,61 @@ public class GameState : MonoBehaviour
 
     public static GameState Instance { get; private set; }
 
-
     public bool SkipHand { get; set; }
     public int Id { get; private set; }
 
-    public bool CanDrink = true;
+    private bool _canDrink = true;
+    public bool CanDrink
+    {
+        get => _canDrink;
+        set => _canDrink = value;
+    }
+
+    private bool _isRestarting = false;
+    public bool IsRestarting => _isRestarting;
 
     public event Action<Hand> HandSwitched;
     public event Action GameRestart;
 
-
     private void Awake()
     {
-        if (Instance == this)
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
             return;
+        }
 
         Instance = this;
     }
 
-
     private void Start()
     {
-        CoffeeSwitcher.RollCoffies();
+        if (CoffeeSwitcher == null)
+        {
+            Debug.LogError("CoffeeSwitcher is null!");
+            return;
+        }
+
+        CoffeeSwitcher.RollCoffies(false);
+        
         if (_playAlone)
             Id = 0;
         else
             Id = Random.Range(0, _hands.Length);
+        
         CurrentHand = _hands[Id];
+        
         for (int i = 0; i < _hands.Length; i++)
         {
-            _hands[i].Select();
-            _hands[i].HandDeselected?.Invoke();
+            if (_hands[i] != null)
+            {
+                _hands[i].Select();
+                if (i != Id)
+                    _hands[i].HandDeselected?.Invoke();
+            }
         }
 
-        CurrentHand.HandSelected?.Invoke();
+        CurrentHand?.HandSelected?.Invoke();
         HandSwitched?.Invoke(CurrentHand);
 
         Debug.Log(Id);
@@ -57,23 +78,52 @@ public class GameState : MonoBehaviour
 
     public void ReStart()
     {
-        CanDrink = false;
+        _isRestarting = true;
+        _canDrink = false;
+    
         GameRestart?.Invoke();
-        CoffeeSwitcher.RollCoffies();
+    
+        // Деактивируем все руки
         for (int i = 0; i < _hands.Length; i++)
         {
-            _hands[i].Select();
+            if (_hands[i] != null)
+                _hands[i].HandDeselected?.Invoke();
         }
-
+    
+        // Перезапускаем кофе с подавлением события
+        if (CoffeeSwitcher != null)
+            CoffeeSwitcher.RollCoffies(true);
+    
+        // Обновляем карты для всех рук
+        for (int i = 0; i < _hands.Length; i++)
+        {
+            if (_hands[i] != null)
+                _hands[i].Select();
+        }
+    
+        // Устанавливаем руку игрока
         Id = 0;
-        SwitchHand(0);
-        CanDrink = true;
+        CurrentHand = _hands[0];
+    
+        // ВАЖНО: Сначала вызываем события, ПОТОМ разрешаем пить!
+        CurrentHand?.HandSelected?.Invoke();
+        HandSwitched?.Invoke(CurrentHand);
+    
+        // Только ПОСЛЕ всех событий разрешаем игру
+        _isRestarting = false;
+        _canDrink = true;
+    
+        Debug.Log("RESTART - Player turn started");
     }
 
     public void SwitchHand(int id)
     {
-        if (CurrentHand != _hands[id])
+        if (id < 0 || id >= _hands.Length || _hands[id] == null)
+            return;
+
+        if (CurrentHand != null && CurrentHand != _hands[id])
             CurrentHand.HandDeselected?.Invoke();
+        
         CurrentHand = _hands[id];
         CurrentHand.HandSelected?.Invoke();
         HandSwitched?.Invoke(CurrentHand);
@@ -83,7 +133,7 @@ public class GameState : MonoBehaviour
     {
         if (SkipHand)
         {
-            CurrentHand.HandSelected?.Invoke();
+            CurrentHand?.HandSelected?.Invoke();
             Debug.Log("SKIP");
             SkipHand = false;
             return;
@@ -93,7 +143,12 @@ public class GameState : MonoBehaviour
         if (Id > _hands.Length - 1)
             Id = 0;
 
-
         SwitchHand(Id);
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
 }
