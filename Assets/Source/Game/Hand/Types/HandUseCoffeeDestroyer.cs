@@ -14,10 +14,6 @@ public class HandUseCoffeeDestroyer : HandUseConsumable
     public override void UseOnAnimation()
     {
         _particle.Play();
-        if (GameState.Instance.Coffee.DamageCharacteristics.Value == 0)
-        {
-            return;
-        }
         GameState.Instance.Coffee.DestroyCup();
     }
 }
