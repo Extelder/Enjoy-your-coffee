@@ -141,7 +141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Switch Hand
+  m_text: Forces the opponent to skip their next turn.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4aa9ee2c17bcede449b90f363701ef89, type: 2}
   m_sharedMaterial: {fileID: 1410365396095967372, guid: 4aa9ee2c17bcede449b90f363701ef89,

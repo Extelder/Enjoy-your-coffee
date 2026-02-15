@@ -169,6 +169,26 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bec712e25521ac349bb2c719b47cb82d, type: 2}
+    - target: {fileID: 3513075443322043449, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.751
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513075443322043449, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.895
+      objectReference: {fileID: 0}
+    - target: {fileID: 7342425628508600927, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8065610216642267038, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
+        type: 3}
+      propertyPath: m_text
+      value: Allows you to steal an item from a dealer and use it immediately
+      objectReference: {fileID: 0}
     - target: {fileID: 8216638341198104294, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
         type: 3}
       propertyPath: _audioClip
