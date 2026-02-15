@@ -6,7 +6,8 @@ using UnityEngine;
 public class HandUseCoffeeDestroyer : HandUseConsumable
 {
     [SerializeField] private ParticleSystem _particle;
-    
+    [SerializeField] private bool _show = true;
+
     public override void Use(Hand hand)
     {
     }
@@ -14,6 +15,6 @@ public class HandUseCoffeeDestroyer : HandUseConsumable
     public override void UseOnAnimation()
     {
         _particle.Play();
-        GameState.Instance.Coffee.DestroyCup();
+        GameState.Instance.Coffee.DestroyCup(_show);
     }
 }

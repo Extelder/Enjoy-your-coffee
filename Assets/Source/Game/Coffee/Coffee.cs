@@ -43,10 +43,11 @@ public class Coffee : MonoBehaviour
         GetComponent<Collider>().enabled = false;
     }
 
-    public void DestroyCup()
+    public void DestroyCup(bool showIndicator = true)
     {
         Debug.Log("SHOW INDICATOR");
-        ShowIndicator();
+        if (showIndicator)
+            ShowIndicator();
         StartCoroutine(Destroying());
     }
 
