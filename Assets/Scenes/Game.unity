@@ -4929,8 +4929,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1101874096}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.005729635, y: -0.6807655, z: 0.005238872, w: -0.7324603}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.12679625, y: -0, z: -0, w: 0.9919288}
+  m_LocalPosition: {x: 5.242, y: 0.32200003, z: 11.787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7648,18 +7648,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2712189844676350773, guid: f113e7a7f05840a4482502de863e8e22,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.26637998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2712189844676350773, guid: f113e7a7f05840a4482502de863e8e22,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.26637998
-      objectReference: {fileID: 0}
-    - target: {fileID: 2712189844676350773, guid: f113e7a7f05840a4482502de863e8e22,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2712189844676350773, guid: f113e7a7f05840a4482502de863e8e22,
         type: 3}
@@ -7711,6 +7701,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandSwitcher
       objectReference: {fileID: 0}
+    - target: {fileID: 5269848096469335904, guid: f113e7a7f05840a4482502de863e8e22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7733,7 +7728,7 @@ PrefabInstance:
     - target: {fileID: 1381291796594522445, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1381291796594522445, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
         type: 3}
@@ -7785,6 +7780,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coffeinverter
       objectReference: {fileID: 0}
+    - target: {fileID: 9199364429943461144, guid: bfe565b596e18ff4d9dcfa2fa7615fc2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7830,18 +7830,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4696159129794544360, guid: cf577c0824a487a419ca2ba21f3c7ae6,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.26637998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4696159129794544360, guid: cf577c0824a487a419ca2ba21f3c7ae6,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.26637998
-      objectReference: {fileID: 0}
-    - target: {fileID: 4696159129794544360, guid: cf577c0824a487a419ca2ba21f3c7ae6,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4696159129794544360, guid: cf577c0824a487a419ca2ba21f3c7ae6,
         type: 3}
@@ -7892,6 +7882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DamageMultiplier
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508559260978516699, guid: cf577c0824a487a419ca2ba21f3c7ae6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7972,20 +7967,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: CoffeeDestroyer
       objectReference: {fileID: 0}
-    - target: {fileID: 8971445055138727890, guid: a25f43a104d9fde40a378efc4efb1832,
+    - target: {fileID: 1370758974311006528, guid: a25f43a104d9fde40a378efc4efb1832,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.26637998
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971445055138727890, guid: a25f43a104d9fde40a378efc4efb1832,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.26637998
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8971445055138727890, guid: a25f43a104d9fde40a378efc4efb1832,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8971445055138727890, guid: a25f43a104d9fde40a378efc4efb1832,
         type: 3}
@@ -8031,6 +8021,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010707911632554623, guid: a25f43a104d9fde40a378efc4efb1832,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010707911632554623, guid: a25f43a104d9fde40a378efc4efb1832,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010707911632554623, guid: a25f43a104d9fde40a378efc4efb1832,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8113,20 +8118,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoisonChecker
       objectReference: {fileID: 0}
-    - target: {fileID: 8959737241518859759, guid: 32465821d64de3c489f5b176161d4af7,
+    - target: {fileID: 5263662684033227994, guid: 32465821d64de3c489f5b176161d4af7,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.26637998
-      objectReference: {fileID: 0}
-    - target: {fileID: 8959737241518859759, guid: 32465821d64de3c489f5b176161d4af7,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.26637998
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8959737241518859759, guid: 32465821d64de3c489f5b176161d4af7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8959737241518859759, guid: 32465821d64de3c489f5b176161d4af7,
         type: 3}
@@ -8460,10 +8460,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stealinverter
       objectReference: {fileID: 0}
+    - target: {fileID: 397598218299226413, guid: 0aaf59644004c2b439943595d0678607,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7567575550861251960, guid: 0aaf59644004c2b439943595d0678607,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7567575550861251960, guid: 0aaf59644004c2b439943595d0678607,
         type: 3}
@@ -8513,25 +8518,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 397598218299226413, guid: 0aaf59644004c2b439943595d0678607,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7427054333641214259}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aaf59644004c2b439943595d0678607, type: 3}
---- !u!1 &7427054333641214258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 397598218299226413, guid: 0aaf59644004c2b439943595d0678607,
+--- !u!114 &7427054333641214259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1154331353730376800, guid: 0aaf59644004c2b439943595d0678607,
     type: 3}
   m_PrefabInstance: {fileID: 7427054333641214257}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7427054333641214259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7427054333641214258}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46351cfd256d1d746b19eab08a284742, type: 3}
@@ -8641,20 +8636,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Healer
       objectReference: {fileID: 0}
-    - target: {fileID: 8334919209593788865, guid: af3873b89e6c60d4fa0e0cacc16bbc1e,
+    - target: {fileID: 1428639359869063436, guid: af3873b89e6c60d4fa0e0cacc16bbc1e,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.26637998
-      objectReference: {fileID: 0}
-    - target: {fileID: 8334919209593788865, guid: af3873b89e6c60d4fa0e0cacc16bbc1e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.26637998
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8334919209593788865, guid: af3873b89e6c60d4fa0e0cacc16bbc1e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8334919209593788865, guid: af3873b89e6c60d4fa0e0cacc16bbc1e,
         type: 3}
