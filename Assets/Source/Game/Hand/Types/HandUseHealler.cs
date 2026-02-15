@@ -5,13 +5,14 @@ using UnityEngine;
 public class HandUseHealler : HandUseConsumable
 {
     [SerializeField] private int _amountToHeal;
-    
+    [SerializeField] private Health _health;
+
     public override void Use(Hand hand)
     {
     }
 
     public override void UseOnAnimation()
     {
-        PlayerHealth.Instance.Heal(_amountToHeal);
+        _health.Heal(_amountToHeal);
     }
 }
