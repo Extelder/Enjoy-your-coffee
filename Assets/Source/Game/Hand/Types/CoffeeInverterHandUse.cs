@@ -6,6 +6,10 @@ public class CoffeeInverterHandUse : HandUseConsumable
 {
     public override void Use(Hand hand)
     {
+    }
+
+    public override void UseOnAnimation()
+    {
         if (GameState.Instance.Coffee.DamageCharacteristics.Value < 1)
         {
             GameState.Instance.Coffee.DamageCharacteristics.Value = 1;

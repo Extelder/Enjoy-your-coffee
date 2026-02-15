@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class StealConsumableHandUse : HandUseConsumable
 {
+    private Hand _hand;
     public static event Action CanSteel;
 
     public override void Use(Hand hand)
     {
+        _hand = hand;
+    }
+
+    public override void UseOnAnimation()
+    {
         CanSteel?.Invoke();
-        hand.CanSteal = true;
+        _hand.CanSteal = true;
     }
 }
