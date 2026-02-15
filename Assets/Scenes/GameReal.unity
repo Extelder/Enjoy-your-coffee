@@ -1413,6 +1413,7 @@ MonoBehaviour:
     type: 3}
   _skipConsumable: {fileID: 6644958148429820082, guid: d29db913d4e8d024cb52cdcc4b8a2a2a,
     type: 3}
+  _coffeeDestroyerConsumable: {fileID: 0}
   _hand: {fileID: 998614595}
   _otherHand: {fileID: 706925645}
 --- !u!114 &328072976
@@ -1429,6 +1430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxValue>k__BackingField: 3
   _prize: {fileID: 625675566}
+  _prizeOnTable: {fileID: 1694209666}
 --- !u!114 &328072977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5430,7 +5432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022c83075c3f79640b6c7a7ffea5e571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxValue>k__BackingField: 10
+  <MaxValue>k__BackingField: 3
   _deathScreen: {fileID: 387894602}
 --- !u!114 &1101874098
 MonoBehaviour:
@@ -7650,6 +7652,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1694209666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9531815504d7b49479ab4ad832ee84a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 482732161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1753785101
 PrefabInstance:
   m_ObjectHideFlags: 0
