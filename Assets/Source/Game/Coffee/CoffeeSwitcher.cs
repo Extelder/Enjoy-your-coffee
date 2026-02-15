@@ -16,6 +16,7 @@ public class CoffeeSwitcher : MonoBehaviour
     private int _currentId;
 
     public event Action CoffiesEnd;
+    public event Action CoffieSwitched;
 
     public void RollCoffies()
     {
@@ -49,5 +50,6 @@ public class CoffeeSwitcher : MonoBehaviour
         _currentCoffee = _coffies[_currentId];
         _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1);
         GameState.Instance.Coffee = _currentCoffee;
+        CoffieSwitched?.Invoke();
     }
 }

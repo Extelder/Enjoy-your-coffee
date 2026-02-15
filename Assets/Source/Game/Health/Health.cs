@@ -25,6 +25,7 @@ public abstract class Health : MonoBehaviour
         if (IsDead())
             return;
 
+        Debug.Log(value);
         if (CurrentValue - value > 0)
         {
             ChangeHealthValue(CurrentValue - value);

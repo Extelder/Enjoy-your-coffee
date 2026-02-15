@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class CoffeeDamager : MonoBehaviour
 {
+    [SerializeField] private Health _health;
     [SerializeField] private CoffeeDrinker _coffeeDrinker;
-    
+
     private void OnEnable()
     {
         _coffeeDrinker.CoffeeDrinked += OnCoffeeDrinked;
@@ -14,7 +15,7 @@ public class CoffeeDamager : MonoBehaviour
 
     private void OnCoffeeDrinked(int value)
     {
-        PlayerHealth.Instance.TakeDamage(value);
+        _health.TakeDamage(value);
     }
 
     private void OnDisable()

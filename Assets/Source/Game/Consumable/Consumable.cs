@@ -36,6 +36,27 @@ public abstract class Consumable : MonoBehaviour
         });
     }
 
+    public virtual void PrepareToUse(Hand hand, Action OnCompleate)
+    {
+        if (!_canMove)
+            return;
+        _canMove = false;
+        _tween = transform.DOMove(hand.HideConsumablePoint.position, _moveTime).SetEase(_ease).OnComplete(() =>
+        {
+            hand.StartCoroutine(Wait((() => { OnCompleate?.Invoke(); })));
+            _canMove = true;
+            Use(hand);
+            hand.Consumables.Remove(this);
+            Destroy(gameObject);
+        });
+    }
+
+    private IEnumerator Wait(Action aCtion)
+    {
+        yield return new WaitForSeconds(1);
+        aCtion?.Invoke();
+    }
+
     private void OnDisable()
     {
         _tween.Kill();
