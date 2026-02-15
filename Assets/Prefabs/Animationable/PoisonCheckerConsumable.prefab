@@ -381,7 +381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Check On Poison
+  m_text: Allows you to see how poisonous your coffee is
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4aa9ee2c17bcede449b90f363701ef89, type: 2}
   m_sharedMaterial: {fileID: 1410365396095967372, guid: 4aa9ee2c17bcede449b90f363701ef89,
