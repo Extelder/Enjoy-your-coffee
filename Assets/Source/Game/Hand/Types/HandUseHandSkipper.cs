@@ -6,6 +6,10 @@ public class HandUseHandSkipper : HandUseConsumable
 {
     public override void Use(Hand hand)
     {
+    }
+
+    public override void UseOnAnimation()
+    {
         GameState.Instance.SkipHand = true;
     }
 }

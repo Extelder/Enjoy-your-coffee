@@ -5,4 +5,10 @@ using UnityEngine;
 public abstract class HandUseConsumable : MonoBehaviour
 {
     public abstract void Use(Hand hand);
+    public abstract void UseOnAnimation();
+
+    public void Disable()
+    {
+        gameObject.SetActive(false);
+    }
 }

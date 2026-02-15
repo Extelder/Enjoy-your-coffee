@@ -8,6 +8,10 @@ public class HandUseHealler : HandUseConsumable
     
     public override void Use(Hand hand)
     {
+    }
+
+    public override void UseOnAnimation()
+    {
         PlayerHealth.Instance.Heal(_amountToHeal);
     }
 }
