@@ -23,9 +23,9 @@ public class CoffeeSwitcher : MonoBehaviour
         _suppressEvents = suppressEvent;
         _moveTween?.Kill();
         _moveTween = null;
-        
+
         _currentId = 0;
-        
+
         for (int i = 0; i < _coffies.Length; i++)
         {
             if (_coffies[i] != null)
@@ -48,7 +48,8 @@ public class CoffeeSwitcher : MonoBehaviour
         {
             _currentCoffee = _coffies[0];
             _moveTween = _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1f);
-            
+            _currentCoffee.GetComponent<Collider>().enabled = true;
+
             if (GameState.Instance != null)
             {
                 GameState.Instance.Coffee = _currentCoffee;
@@ -56,22 +57,22 @@ public class CoffeeSwitcher : MonoBehaviour
                     CoffeeSwitched?.Invoke();
             }
         }
-        
+
         _suppressEvents = false;
     }
 
-    public bool NextCoffee()  // Теперь возвращает bool!
+    public bool NextCoffee() // Теперь возвращает bool!
     {
         _currentId++;
         Debug.Log(_currentId);
         Debug.Log(_count - 1);
-    
+
         if (_currentId > _count - 1)
         {
             if (GameState.Instance != null)
                 GameState.Instance.ReStart();
             _currentId = 0;
-            return true;  // Вернули TRUE - был рестарт!
+            return true; // Вернули TRUE - был рестарт!
         }
 
         if (_coffies[_currentId] != null && _activeCoffeePoint != null)
@@ -79,15 +80,16 @@ public class CoffeeSwitcher : MonoBehaviour
             _moveTween?.Kill();
             _currentCoffee = _coffies[_currentId];
             _moveTween = _currentCoffee.transform.DOMove(_activeCoffeePoint.position, 1f);
-        
+            _currentCoffee.GetComponent<Collider>().enabled = true;
+
             if (GameState.Instance != null)
             {
                 GameState.Instance.Coffee = _currentCoffee;
                 CoffeeSwitched?.Invoke();
             }
         }
-    
-        return false;  // Вернули FALSE - рестарта не было
+
+        return false; // Вернули FALSE - рестарта не было
     }
 
     private void OnDisable()

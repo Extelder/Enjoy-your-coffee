@@ -1496,7 +1496,8 @@ MonoBehaviour:
     type: 3}
   _skipConsumable: {fileID: 6644958148429820082, guid: d29db913d4e8d024cb52cdcc4b8a2a2a,
     type: 3}
-  _coffeeDestroyerConsumable: {fileID: 0}
+  _coffeeDestroyerConsumable: {fileID: 8994821818690537974, guid: 4e07a9c266bb5b647aceae7ccb7a60f0,
+    type: 3}
   _hand: {fileID: 998614595}
   _otherHand: {fileID: 706925645}
 --- !u!114 &328072976
